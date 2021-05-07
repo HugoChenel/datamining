@@ -1,0 +1,145 @@
+---
+title: "Matrice Individus-Variables"
+output: html_notebook
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r}
+# Chargement des librairies
+library(tidyverse)
+library(dplyr)
+library(RMySQL)
+library(data.table)
+
+##options(scipen = 999) # disables scientific notation
+
+# chargement des données
+setwd("~/Bureau/fouillenad")
+gene = read.table("Gene.tsv", sep = "\t", header = T)
+protein = read.table("Protein.tsv", sep = "\t", header = T)
+conserved_domains = fread("Conserved_Domain.tsv", sep = "\t", header = T) #CAREFUL READ TABLE
+functional_domains = fread("Functional_Domain.tsv", sep = "\t", header = T) 
+orthology = fread("Orthology.tsv", sep = "\t", header = T)
+
+
+# Construction de la matrice
+
+
+## Protein table
+
+head(protein)
+names(protein)
+summary(protein)
+str(protein)
+
+unique(protein$Type) # les différentes modalités de la variable "type"
+length(which(protein$Type == 'ABC')) #15416 : gènes codant pour les partenaires ABC
+
+
+# #Conserved domains table (basé sur FD ID)
+
+head(conserved_domains)
+names(conserved_domains)
+summary(conserved_domains)
+str(conserved_domains)
+
+length(unique(conserved_domains$FD_ID)) #  30365 : nb de differents FD_ID
+
+
+
+# connexion au serveur MySQL
+#Création d’une base de données au préalable
+dbh=dbConnect(MySQL(),
+              user="guest", 
+              password="bioinfo",
+              dbname="fouille", 
+              host="195.220.42.4")
+
+
+#Requete via evalue CD pour abc transporteurs
+
+query = "SELECT GENE_ID
+         FROM Conserved_Domain
+         WHERE e_Value < 0.00005 AND GENE_ID IN (SELECT GENE_ID FROM Gene WHERE Function like 'ABC%')
+         ORDER BY e_Value DESC"
+
+
+df = dbGetQuery(dbh, query)
+knitr::kable(df)
+#14049
+
+
+#Requete pour récupérer la longueur des FD 
+
+query = "SELECT Gene.GENE_ID, Functional_Domain.FD_length, Functional_Domain.FD_ID, Conserved_Domain.e_Value
+        FROM Functional_Domain, Conserved_Domain, Gene
+        WHERE Functional_Domain.FD_ID = Conserved_Domain.FD_ID 
+        AND Conserved_Domain.GENE_ID = Gene.GENE_ID
+        AND Gene.Function like 'ABC%'
+        AND Conserved_Domain.e_Value < 0.005"
+    
+df2 = dbGetQuery(dbh, query)
+knitr::kable(df2)
+
+#Retirer les doublons : 
+The_table1 <- df2 %>% group_by(GENE_ID)  %>% filter(e_Value == min(e_Value))
+
+#Selectionner le subject_ID correspondant au Gene_ID, et le norm_score pour appliquer un filtre via le norm_Score max 
+query = "SELECT subject_id, norm_Score
+          FROM  Orthology
+          WHERE evalue <= 0.00005 AND subject_id IN (SELECT Gene_ID 
+                                                  FROM Protein 
+                                                  WHERE Type = 'ABC')" 
+                                                 
+
+dft = dbGetQuery(dbh, query)
+knitr::kable(dft)
+
+#Retirer les doublons en filtrant grâce au norm_score
+The_table2 <- dft %>% group_by(subject_id)  %>% filter(norm_Score == max(norm_Score))
+
+
+#Renommer la colonne subject_ID afin de permettre le merge entre les deux tables selon le Gene_ID
+colnames(The_table2)[1] <- "GENE_ID"
+
+#Merge 
+matrice1 =  merge(The_table1, The_table2, by = "GENE_ID", all.x = TRUE, all.y = FALSE)
+
+#Retirer e_value et norm_score qui n'ont servi qu'aux étapes de filtrations
+matrice1 <- matrice1[,-4:-5]
+
+#Séléctionner les positions de début et de fin des séquences codant pour les gènes ABC depuis conserved_domain ainsi que le score
+conserved <- conserved[,-1]
+conserved <- conserved[,-2:-4]
+conserved <- conserved[,-5]
+#Renommer la colonne Gene_ID afin de permettre le merge entre les deux tables selon le GENE_ID
+colnames(conserved)[1] <- "GENE_ID"
+
+
+#Séléctionner les noms des sous-familles depuis functionnal_domain 
+functional_domains <- functional_domains[,-2:-5]
+#Retirer les cases vides afin de permettre le merge ensuite 
+functional <- functional_domains %>% group_by(FD_ID)  %>% filter(Family_Link !="")
+
+
+#Merge final 
+matrice2 =  merge(matrice1, conserved, by = "GENE_ID", all.x = TRUE, all.y = FALSE)
+matriceFinal = merge(matrice2, functional, by = "FD_ID")
+
+#Vérification doublons
+matriceFinal <- matriceFinal %>% group_by(GENE_ID)
+
+#Suppression des gene_ID qui ne serviront pas à l'analyse car unique à chaque individu 
+matriceFinal <- matriceFinal[,-1]
+
+#OUTPUT MATRICE 
+write.table(matriceFinal, file="mymatrix.txt", row.names=FALSE, col.names=TRUE, sep = '\t', append = FALSE, quote = FALSE)
+
+
+  
+
+```
+
+
