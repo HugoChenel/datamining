@@ -39,7 +39,6 @@ De plus, certains domaines peuvent être portés par un même gène ou des gène
 
 
 
-
 **Fig.1 : **Architecture des transporteurs ABC [http://silico.biotoul.fr/enseignement/m1/datamining/projet/sujet.html](http://silico.biotoul.fr/enseignement/m1/datamining/projet/sujet.html)
 
 Par exemple : 
