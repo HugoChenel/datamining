@@ -25,7 +25,7 @@ Les systèmes ABC (ATP Binding Cassette) constituent un large ensemble de proté
 
 Ces systèmes formant une très grande famille multigénique sont retrouvés dans les 3 règnes du vivant (eucaryotes, archées et procaryotes). Chez ces derniers, ils sont la plupart du temps impliqués dans l'efflux de molécules toxiques comme les antibiotiques.
 
-L’<span style="text-decoration:underline;">architecture des transporteurs est conservée</span> au sein de la majorité de ces systèmes. Cependant, leur <span style="text-decoration:underline;">organisation en domaine est variable</span>. On observe généralement 2 domaines pour les exportateurs et 3 domaines pour les importeurs :
+L’architecture des transporteurs est conservée au sein de la majorité de ces systèmes. Cependant, leur organisation en domaine est variable. On observe généralement 2 domaines pour les exportateurs et 3 domaines pour les importeurs :
 
 - MSD : Membrane Spanning Domain. 2 domaines MSD (hétéro ou homo-dimère) forment le pore à travers la membrane.
 
