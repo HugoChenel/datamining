@@ -37,10 +37,7 @@ De plus, certains domaines peuvent être portés par un même gène ou des gène
 
 
 
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
-
-![alt_text](images/image1.png "image_tooltip")
 
 
 **Fig.1 : **Architecture des transporteurs ABC [http://silico.biotoul.fr/enseignement/m1/datamining/projet/sujet.html](http://silico.biotoul.fr/enseignement/m1/datamining/projet/sujet.html)
