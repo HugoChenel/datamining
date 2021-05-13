@@ -1,7 +1,6 @@
 ```
-Identification et Classification de systèmes ABC
+Identification et Classification de systèmes  ABC
 ```
-
 
 
 Dans le cadre de l’UE “Fouille de données” par R. Barriot 
@@ -14,13 +13,11 @@ GHEZIEL Nadine
 
 M1 “Biologie Informatique et Biologie des Systèmes”
 
-
-[TOC]
-
-
  	 	
 
-**CONTEXTE**
+
+
+*   **CONTEXTE**
 
 L’objectif de ce projet consiste en la mise en place d’une méthode permettant l’annotation de génomes complets de procaryotes en termes de systèmes ABC.
 
@@ -63,7 +60,9 @@ Les techniques de séquençage génomique ont progressé ces dernières années,
 
 L’annotation des génomes permet de trier et organiser ces données afin de leur donner du sens. Il pourrait être judicieux d’utiliser les données disponibles relatives aux systèmes ABC afin d’annoter automatiquement les informations liées aux systèmes ABC d’un génome.
 
-**OBJECTIFS 	 	**
+
+
+*   **OBJECTIFS 	 	**
 
 Le data mining, ou Knowledge Discovery in Databases (KDD), est un processus permettant l’extraction des connaissances intéressantes ou des motifs/patterns à partir d’une grande quantité de données. Composante essentielle des techniques d'analyse des grands jeux de données, cette technique permet l’exploration et l’analyse de données volumineuses, la transformation de ces données en information utile, et éventuellement la recherche de relation entre les données.
 
@@ -71,9 +70,7 @@ En d’autres termes, le data mining consiste en la découverte de connaissances
 
 Fig. 2 : Processus d’extraction de connaissances à partir de bases de données
 
-[https://touriaelouahabi.wordpress.com/ecbd/concepts-et-principes-du-data-mining/](https://touriaelouahabi.wordpress.com/ecbd/concepts-et-principes-du-data-mining/)
-
-<span style="text-decoration:underline;">	 	 	 	</span>
+[https://touriaelouahabi.wordpress.com/ecbd/concepts-et-principes-du-data-mining/](https://touriaelouahabi.wordpress.com/ecbd/concepts-et-principes-du-data-mining/)<span style="text-decoration:underline;"> </span>
 
 Une succession d’étapes est impliquée dans le processus de découverte de connaissances:
 
@@ -103,16 +100,20 @@ La méthode des K plus proches voisins (ou knn pour “k-nearest neighbors”) s
 
 Il existe plusieurs manières d’évaluer un classificateur : 
 
-partitionnement - validation croisée - bootstrapping \
+La validation croisée est une méthode d’estimation de la fiabilité d’un modèle basé sur une technique d’échantillonnage. Son principe consiste à diviser les données en k-partitions puis utiliser k-1 partitions pour l’apprentissage et la dernière pour le test. Après l'apprentissage, on peut calculer une performance de validation.
+
+Divers autres paramètres permettent l’évaluation d’un classificateur : \
 -Calcul de la spécificité : capacité à ne détecter que des vrais positifs \
 -Calcul de la sensibilité : capacité à détecter un maximum de vrais positifs \
 -Courbe ROC : graphique des performances du modèle, vrais positifs en fonction des faux positifs 
 
 -AUC : pour l’aire sous la courbe ROC : entre 0 et 1, c’est une valeur qui fournit la capacité discriminatoire du modèle.
 
-La classification est le type d’apprentissage retenu pour ce projet afin d’évaluer si des gènes codent ou non pour des protéines partenaires ABC.
+La classification est le type d’apprentissage retenu pour ce projet afin de classer les gènes selon leur sous-type de protéine ABC. 
 
-**INFORMATIONS DISPONIBLES**
+
+
+*   **INFORMATIONS DISPONIBLES**
 
 ABCdb est une banque de données publique dédiée aux transporteurs ABC. Elle a été encodée à partir de génomes procaryotes intégralement séquencés. On dispose donc de données sur les génomes expertisés permettant la classification automatique.
 
@@ -124,12 +125,11 @@ Deux informations sont pertinentes parmi celles à notre disposition :
 
 *   les domaines présents sur la séquence protéique correspondant au gène à partir de banques de données de domaines
 *   l’orthologie de type 1:1 entre les gènes des génomes expertisés sachant que l’on connaît leur architecture en domaine et leur sous-famille.
-
-**ANALYSE**
+*   **ANALYSE**
 
 Fig 3 : Schéma Base de données
 
-http://silico.biotoul.fr/enseignement/m1/datamining/projet/sujet.html
+[http://silico.biotoul.fr/enseignement/m1/datamining/projet/sujet.html](http://silico.biotoul.fr/enseignement/m1/datamining/projet/sujet.html)
 
 Dans un premier temps, il est important de choisir les tables jugées pertinentes à notre analyse. Selon une réflexion menée sur notre problématique, et sur les attributs contenus dans les tables proposées, nous avons portés nos choix sur les suivantes : 
 
@@ -142,9 +142,10 @@ Dans un premier temps, il est important de choisir les tables jugées pertinente
 
 Les tables contiennent certains attributs pertinents à notre analyse : Gene_ID et FD_ID nous permettront de faire correspondre nos 4 tables d'intérêts.
 
-**CONCEPTION**
 
-**<span style="text-decoration:underline;">Matrice individus-variables</span>**
+
+*   **CONCEPTION**
+*   **<span style="text-decoration:underline;">Matrice individus-variables</span>**
 
 Notre matrice individus-variable a été construite à partir du logiciel R version 3.04. Le gestionnaire de bases de données utilisé est le serveur MariaDB version 10.5.9. L’utilisation du serveur depuis R à l’aide de la librairie RMySQL permet d’effectuer des liens entre ces tables grâce à des requêtes SQL, et ainsi tirer des données pertinentes pour la suite de l’analyse dans le but d’effectuer notre classification.
 
@@ -155,9 +156,10 @@ Les variables (attributs) choisis pour mener à bien la classification sont :
 
 
 *   Gene_ID depuis Gene
-*   FD_ID depuis Functional Domain
-*   Length depuis Functional Domain
-*   Score_norm depuis Orthology
+*   FD_ID depuis Functional_Domain
+*   Length depuis Functional_Domain
+*   S_Start et S_End et Score depuis Conserved_Domain 
+*   Family_Link depuis Functional_Domain
 
 Dans un premier temps, il sera nécessaire de créer une base de données MariaDB contenant la totalité de nos tables. La création des tables à l’aide de requêtes est automatisée grâce à l’utilisation du document “create.and.populate.fouille.db.sql” fourni contenant la totalité des requêtes. 
 
@@ -191,11 +193,11 @@ La sélection indique que sont récupérées :
 
 
 *   Le Gene_ID depuis la table Gene (soit l’identifiant unique qui permet de rendre unique chaque individu de la matrice) mais également de croiser les tables : c’est la clé primaire et secondaire. 
-*   Length depuis la table Functional Domain (soit la longueur du domaine fonctionnel) 
+*   Length depuis la table Functional_Domain (soit la longueur du domaine fonctionnel) 
 *   Le FD_ID (identifiant unique du domaine fonctionnel retrouvé) 
-*   La e-value depuis Conserved Domain qui permettra de filtrer les doublons 
+*   La e-value depuis Conserved_Domain qui permettra de filtrer les doublons 
 
-Les tables Gene et Conserved_Domain se croisent grâce au GENE_ID, Conserved_Domain et Functional_Domain grâce au FD_ID. Un premier filtre est effectué sur les e_value &lt; 0.005 pour optimiser les requêtes, et dans Gene : le gène qui doit coder pour une protéine fonctionnelle ABC.
+Les tables Gene et Conserved_Domain se croisent grâce au GENE_ID, Conserved_Domain et Functional_Domain grâce au FD_ID. Un premier filtre est effectué sur les e_value < 0.005 pour optimiser les requêtes, et dans Gene : le gène qui doit coder pour une protéine fonctionnelle ABC.
 
 Il est important de retirer les doublons afin que l’analyse soit menée avec des individus uniques mais également afin de faciliter la commande merge qui suivra plus tard. 
 
@@ -207,7 +209,7 @@ The_table1 <- df2 %>% group_by(GENE_ID)  %>% filter(e_Value == min(e_Value))
 
 The_table1 reçoit notre première table (df2) rangée par GENE_ID qui seront filtrés : si des doublons de GENE_ID sont présents, seul l’individu ayant la e_value la plus faible sera conservé dans la matrice afin de garder les résultats les plus significatifs possibles.
 
-Dans un second temps, il faut récupérer le score normalisé également sélectionné pour cette analyse. La table Orthology étant très lourde (plusieurs millions d’individus), il est important de filtrer les résultats dans un but d’efficience du script. 
+Dans un second temps, il faut récupérer le score normalisé également sélectionné pour cette analyse. La table Orthology étant très lourde (plusieurs millions d’individus), il est important de filtrer les résultats dans un but d’efficience du script.
 
 
 ```
@@ -243,9 +245,9 @@ matrice1 <- matrice1[,-4:-5]
 ```
 
 
-Le merge permet de fusionner nos deux tables sur la base du GENE_ID seulement pour les individus présents dans la première table (The_table1). La seconde requête par le na.omit permet de retirer les lignes contenant des NA (not available). 
+Le merge permet de fusionner nos deux tables sur la base du GENE_ID seulement pour les individus présents dans la première table (The_table1). La seconde requête par le _na.omit _permet de retirer les lignes contenant des données NA (not available).
 
-Nous retirons alors les colonnes correspondant à la e_value et au norm_score qui m’ont permit qu’à améliorer la qualité du filtrage mais ne figureront pas dans l’analyse KNIME.
+Nous retirons alors les colonnes correspondant à la e_value et au norm_score qui nous ont permis d' améliorer la qualité du filtrage mais ne figureront pas dans l’analyse KNIME.
 
 
 ```
@@ -259,7 +261,7 @@ matrice2 =  merge(matrice1, conserved, by = "GENE_ID", all.x = TRUE, all.y = FAL
 ```
 
 
-Nous sélectionnons ensuite depuis la table conserved_domain les positions start et end des séquences ainsi que leur Gene_ID renommé en Gene_ID. Le merge permettra d’ajouter à nos séquences sélectionnées qui codent pour les protéines de type ABC leur séquences start et end.
+Nous sélectionnons ensuite depuis la table conserved_domain les positions start et end et le score des séquences ainsi que leur Gene_ID renommé en Gene_ID. Le merge permettra d’ajouter à nos séquences sélectionnées qui codent pour les protéines de type ABC leur séquences start et end, ainsi que le score.
 
 
 ```
@@ -269,7 +271,7 @@ matriceFinal = merge(matrice2, functional, by = "FD_ID")
 ```
 
 
-Depuis functional_domains, nous sélectionnons les sou_ types de familles ABC, soit la colonne Family_link qui nous permettra de construire nos modèles de classifications. Un filtre est effectué afin de supprimer les lignes contenant des cases vides (une majorité de la table). Le merge est alors effectué avec la précédente matrice retenue. 
+Depuis functional_domains, nous sélectionnons les sous-types de familles ABC, soit la colonne Family_link qui nous permettra de construire nos modèles de classifications. Un filtre est effectué afin de supprimer les lignes contenant des cases vides (une majorité de la table). Le merge est alors effectué avec la précédente matrice retenue. 
 
 
 ```
@@ -283,9 +285,9 @@ Les dernières étapes consistent en :
 
 
 
-*   vérifier l’absence de doublons
-*   supprimer la colonne GENE_ID qui ne sera plus utile à l’analyse 
-*   Ecrire la matrice dans un fichier de sortie 
+*   la vérification de l’absence de doublons
+*   la suppression de la colonne GENE_ID qui ne sera plus utile à l’analyse 
+*   l’écriture de la matrice dans un fichier de sortie 
 
 Nous obtenons alors la matrice suivante, composée de 4523 individus :
 
@@ -297,14 +299,19 @@ Nous obtenons alors la matrice suivante, composée de 4523 individus :
 ![alt_text](images/image2.png "image_tooltip")
 
 
-**<span style="text-decoration:underline;">Knime</span>**
+
+
+*   **<span style="text-decoration:underline;">Knime</span>**
 
 Nous allons maintenant utiliser des méthodes d'apprentissage proposées par le logiciel KNIME, un logiciel open source permettant la construction de workflow précis. Le workflow sera constitué des différentes étapes nécessaires à sa réalisation depuis les lecture et paramétrage des données, à l’analyse et la visualisation des résultats 
 
 KNIME propose l’utilisation d’un nombre étendu de tests statistiques et algorithmes dédiés à la fouilles de données, nous en utiliserons plusieurs afin d’interpréter, mais également de comparer  les résultats obtenus avec plusieurs méthodes.
 
+<h5>**Construction du modèle**</h5>
 
-#### **Construction du modèle**
+
+<h5>Parmi** **les différents types de classificateurs, les tests ont été effectués sur l’arbre de décision (Decision Tree Learner) et le classificateur bayésien naïf (Naïve Bayes Classifier).</h5>
+
 
 
 
@@ -321,8 +328,6 @@ Une mesure de qualité intéressante est le <span style="text-decoration:underli
 
 Un piège à éviter dans cette modélisation est l’overfitting ; une sur-modélisation du jeu d’apprentissage dont l’arbre généré risque de trop refléter le jeu d’apprentissage. Pour y remédier, une méthode permet d'évaluer les sous-arbres à élaguer (pruning) : le principe <span style="text-decoration:underline;">MDL</span> (minimum description length).
 
-	
-
 
 
 2. <span style="text-decoration:underline;">Classificateur bayésien naïf </span>
@@ -337,40 +342,32 @@ La méthode se construit de la façon suivante :
 *   Détermination des probabilités à priori de chaque classe (données d’observation)
 *   Application du théorème de Bayes _𝑃_(_C_/_𝑋_)=(_𝑃_(_𝑋_/_C_)∗_𝑃_(_C_))/_𝑃(𝑋_) afin d’obtenir la probabilité à posteriori des classes
 *   Choix de la classe la plus probable
-3. <span style="text-decoration:underline;">Plus proches voisins</span> ca sert à rien
 
-    Valeurs binaires
-
-
-    Dissimilarité de valeurs binaires
+Le workflow se construit selon le modèle suivant pour les 2 types de classification :
 
 
-    Variables nominales
 
+*   Le nœud _File Reader_ permet le chargement des données. On s’assure de configurer correctement les types de nos attributs, en particulier FD_ID en tant que _String_ et non _Integer_.
+*   Le nœud _Decision Tree Learner_ ou _Naive Bayes Learner_ est configuré de telle sorte que la colonne de classification corresponde à _Family_Link_.
 
-    Variables ordinales
-
-
-    Normalisation des données -> z-score
-
-4. <span style="text-decoration:underline;">Random forest</span> constitue une extension de des arbres de décisions. Un échantillonnage des attributs est effectué pour décorréler les arbres construits. Le principal inconvénient de cette méthode est la sensibilité et le sur-apprentissage. De plus, il n’y a pas d’élagage, le sur-apprentissage est compensé par le Bagging (Bootstrap Aggregating). raf?
-
-
-#### **Evaluation d’un classificateur : performances** \
+<h5>**Evaluation d’un classificateur : performances** \
  \
-Si une classe est peu présente dans le jeu de données initial, le partitionnement peut entraîner la création d’un jeu d’apprentissage et d’un jeu de test dont le nombre de classes sera différent. Pour y remédier, on utilisera des validations croisées.
+Si une classe est peu présente dans le jeu de données initial, le partitionnement peut entraîner la création d’un jeu d’apprentissage et d’un jeu de test dont le nombre de classes sera différent. Pour y remédier, on utilisera des validations croisées.</h5>
+
 
 Ces validations croisées sont intégrées dans Knime (`"Cross Validation"`). La construction s'effectue de la manière suivante :
 
 
 
-*   le noeud X-Partitioner est placé entre le File Reader et le Learner. Son rôle est de diviser le jeu de données en jeu d’apprentissage pour le Learner et en jeu de test pour le Predictor. Nous avons testé différents nombre de validations, les résultats suivants pour toutes les méthodes d’échantillonnages auront des 10 et 50 Cross Validation.
-*   le noeud X-Aggregator situé après le Predictor permet une confrontation de la classe permet une confrontation de la classe prédite à la classe connue pour chacun des objets testés.
+*   Le nœud X-Partitioner est placé entre le File Reader et le Learner. Son rôle est de diviser le jeu de données en jeu d’apprentissage pour le Learner et en jeu de test pour le Predictor. Nous avons testé différents nombre de validations, les résultats suivants pour toutes les méthodes d’échantillonnages auront des 10 et 50 Cross Validation.
+*   Le nœud X-Aggregator situé après le Predictor permet une confrontation de la classe permet une confrontation de la classe prédite à la classe connue pour chacun des objets testés.
 *   en fin de Workflow, le noeud Statistics affiche le taux d’erreur moyen de notre modèle tandis que le noeud Scorer nous apporte des informations complémentaires tel que le nombre de VP, FP, VN, FN et ainsi la spécificité (capacité à ne détecter que des vrais positifs) et la sensibilité (capacité à détecter un maximum de vrais positifs).
 
 La validation croisée “Leave-one-out” (validation croisée avec k=s où k représente le nombre de partitions) n’a pas été effectuée car les temps de calculs étaient trop importants, cela est lié à la taille conséquente de la matrice individu x variable.
 
-**RÉSULTATS **
+
+
+*   **RÉSULTATS **
 
 
 
@@ -684,7 +681,9 @@ Les résultats obtenus pour classification _naïve_ bayésienne sont représent�
 </table>
 
 
-**DISCUSSION**
+
+
+*   **DISCUSSION**
 
 L’ensemble des résultats est satisfaisant. L’arbre de décision et le classificateur bayésien semblent être des types de classification pertinent pour notre jeu de données. En effet, hormis pour le linear sampling, le taux d’erreur de ces deux types de classification est inférieur à 2% peu importe les paramètres sélectionnés.
 
@@ -708,14 +707,33 @@ Le nombre de validations croisées semble avoir un impact significatif sur le ta
 
 L’élagage (MDL) a pour but d’augmenter la précision pour éviter que l’arbre généré ne reflète trop le jeu d’apprentissage en supprimant les branches pouvant représenter des anomalies. Néanmoins, on observe un taux d’erreur plus grand en présence d’élagage. Ceci peut sembler paradoxal à première vue, on pourrait émettre l’hypothèse que l’élagage supprime des branches nécessaires à la classification. L’élagage pourrait donc être intéressant pour un jeu de données de taille considérable mais n’est pas adapté pour le nôtre.
 
-**BILAN ET PERSPECTIVES**
-
-Résultats significatifs ? Perspectives pour améliorer l’analyse ?
-
-Ce qu’attend Barriot au final : Discussion sur un des arbres obtenus : est-ce que ça nous apprend quelque chose ? quels attributs et/ou valeurs sont importants ?  \
 
 
-**GESTION DE PROJET**
+*   **BILAN ET PERSPECTIVES**
+
+La majorité du travail s’est concentrée sur la construction de la matrice individus-variables. Il a fallu préalablement sélectionner des attributs pertinents biologiquement afin de classer les gènes selon leur sous-type de protéine ABC. 
+
+Il nous a semblé logique de sélectionner les identifiants des domaines (“FD_ID”) pour réussir à classer les gènes selon les sous-types de protéines pour lesquelles ils codent, supposant que les types de domaines fonctionnels présents pourraient discriminer les classes.
+
+Après quelques recherches bibliographiques, il nous paraissait judicieux de sélectionner les tailles des domaines et les positions END et START : un même domaine pourrait être positionné à des endroits différents chez des protéines de deux sous-types différents. 
+
+Enfin, il était nécessaire de sélectionner les noms des sous-types protéiques (“Family_link”), attribut qui permet l’apprentissage et également la classification recherchée.
+
+L’ajout du score s’est fait tardivement dans le processus de construction de la matrice et a permis d’améliorer les résultats de prédiction.
+
+La présence de doublons dans les tables et de valeurs manquantes a rendu la construction des premières matrices ardues, une maîtrise et une compréhension forte des données permet alors un exercice plus aisé et plus efficace. L’utilisation de la fonction _merge_ a présenté certaines difficultés dans la prise en main des choix des arguments optionnels et l’utilisation de table très différentes (en taille, en doublons, en attributs…).
+
+Les résultats issus de la classification utilisant l’arbre de décision avec une méthode Stratified sampling ou Random sampling sont excellents avec un pourcentage d'erreurs moyen inférieurs à 1%. Ces résultats sont significatifs et permettent de conclure quant à la pertinence des attributs choisis. Ainsi, les gènes codent pour des protéines ABC et peuvent être classifiés selon leurs domaines fonctionnels, la taille et la position de la séquence.
+
+Il aurait cependant été intéressant d’utiliser d’autres méthodes de classification en vue de comparer leurs performances avec les méthodes abordées dans ce projet. 
+
+Éventuellement, nous aurions pu tester la validation croisée où k=s (Leave-one-out). Néanmoins, cette dernière est nettement plus coûteuse en calcul que la K validation croisée sans être nécessairement meilleure. De plus, il existe une sous-estimation de l’erreur en cas de sur-apprentissage.
+
+Il pourrait également être intéressant de tester les mêmes arbres avec un plus grand nombre de cross validation, 100 par exemple, et d’observer une éventuelle amélioration des résultats. 
+
+
+
+*   **GESTION DE PROJET**
 
 La gestion de ce projet fut déterminée début février selon le diagramme de GANTT suivant : 
 
