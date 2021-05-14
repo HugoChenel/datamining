@@ -6,8 +6,8 @@
 ![img](https://upload.wikimedia.org/wikipedia/fr/a/a4/Logo_UT3.jpg)
 
 
-_**CHENEL Hugo 
-GHEZIEL Nadine **_
+**CHENEL Hugo **
+**GHEZIEL Nadine**
 
 
 
@@ -70,7 +70,8 @@ De plus, certains domaines peuvent être portés par un même gène ou des gène
 ![alt_text](https://lh5.googleusercontent.com/wORimms2Tz-wON5TPAOFTMHmIds8VBCT7yjWf4dQ-qSLbcpXf49ri3by8PThE1gUM-FsQQPR-BvzckmhEDVsx7v79K0w1vK-kaSrRw3C5jr1kFpIwghxV7_P_MfJgC9dNPVp28cy)
 
 
-Fig.1 : Architecture des transporteurs ABC (http://silico.biotoul.fr/enseignement/m1/datamining/projet/sujet.html)
+Fig.1 : Architecture des transporteurs ABC 
+http://silico.biotoul.fr/enseignement/m1/datamining/projet/sujet.html
 
 Par exemple : 
 
@@ -89,7 +90,7 @@ L’annotation des génomes permet de trier et organiser ces données afin de le
 
 
 
-### ❏ OBJECTIFS 	 	**
+### ❏ OBJECTIFS
 
 Le data mining, ou Knowledge Discovery in Databases (KDD), est un processus permettant l’extraction des connaissances intéressantes ou des motifs/patterns à partir d’une grande quantité de données. Composante essentielle des techniques d'analyse des grands jeux de données, cette technique permet l’exploration et l’analyse de données volumineuses, la transformation de ces données en information utile, et éventuellement la recherche de relation entre les données.
 
@@ -98,8 +99,7 @@ En d’autres termes, le data mining consiste en la découverte de connaissances
 ![img](https://touriaelouahabi.files.wordpress.com/2013/04/sans-titre.png)
 
 Fig. 2 : Processus d’extraction de connaissances à partir de bases de données
-
-[https://touriaelouahabi.wordpress.com/ecbd/concepts-et-principes-du-data-mining/]
+https://touriaelouahabi.wordpress.com/ecbd/concepts-et-principes-du-data-mining/
 
 Une succession d’étapes est impliquée dans le processus de découverte de connaissances:
 
@@ -116,11 +116,11 @@ Cette procédure aboutit à la découverte de connaissances.
 
 Deux types d'apprentissages sont utilisés en fouille de données : 
 
--Le premier est un <span style="text-decoration:underline;">apprentissage non supervisé</span>, les classes sont alors inconnues. L’objectif est de, à partir de n observations, constituer k groupes tels que ces groupes soient constitués d’observations semblables, mais qu’ils soient le plus différents possibles entre eux.  On parle de <span style="text-decoration:underline;">clustering</span>. \
-Il existe des méthodes non hiérarchiques, dites par partitionnement, qui consiste en la construction de k partitions qui seront corrigées jusqu’à obtenir une similarité parfaite. L’exemple le plus connu est la méthode du k-means. \
+-Le premier est un apprentissage non supervisé, les classes sont alors inconnues. L’objectif est de, à partir de n observations, constituer k groupes tels que ces groupes soient constitués d’observations semblables, mais qu’ils soient le plus différents possibles entre eux.  On parle de clustering.
+Il existe des méthodes non hiérarchiques, dites par partitionnement, qui consiste en la construction de k partitions qui seront corrigées jusqu’à obtenir une similarité parfaite. L’exemple le plus connu est la méthode du k-means.
 Les méthodes hiérarchiques consistent en la création d’une décomposition hiérarchique par agglomération ou division de groupes similaires ou dissimilaires(ex : Hierarchical clustering).
 
--Le second est un <span style="text-decoration:underline;">apprentissage supervisé</span> : étant donné un ensemble de classes connues, établir les « meilleures » règles de classement, le jeu de données d’apprentissage fournit donc les classes des objets. Ce type d’apprentissage correspond à la <span style="text-decoration:underline;">classification</span>. \
+-Le second est un apprentissage supervisé : étant donné un ensemble de classes connues, établir les « meilleures » règles de classement, le jeu de données d’apprentissage fournit donc les classes des objets. Ce type d’apprentissage correspond à la classification.
 L’objectif de cet apprentissage est de modéliser la relation entre les observations et la classe d’appartenance, mais également d’identifier la classe d’appartenance d’un objet à partir d’un ensemble de descripteurs. De nombreux outils existent, tels que la méthode des K plus proches voisins, ou celle de l’arbre de décision. 
 
 Les arbres de décisions sont des outils d’aide à la décision :  une procédure de classification est construite suivant un protocole simple tout en offrant une interprétabilité agréable aux utilisateurs. Les variables discriminantes seront choisies par le logiciel selon une suite de calculs statistiques. 
