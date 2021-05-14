@@ -67,7 +67,7 @@ L’architecture des transporteurs est conservée au sein de la majorité de ces
 De plus, certains domaines peuvent être portés par un même gène ou des gènes différents, mais on peut également retrouver un seul gène pour plusieurs domaines.
 
 
-![alt_text](https://lh5.googleusercontent.com/wORimms2Tz-wON5TPAOFTMHmIds8VBCT7yjWf4dQ-qSLbcpXf49ri3by8PThE1gUM-FsQQPR-BvzckmhEDVsx7v79K0w1vK-kaSrRw3C5jr1kFpIwghxV7_P_MfJgC9dNPVp28cy)
+![alt_text](rapport/transporteurs.png)
 
 
 Fig.1 : Architecture des transporteurs ABC 
