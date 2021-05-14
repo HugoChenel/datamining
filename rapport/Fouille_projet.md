@@ -324,7 +324,7 @@ Les dernières étapes consistent en :
 
 Nous obtenons alors une matrice composée de 4523 individus.
 
-
+![img](rapport/matrice.png)
 
 
 #### ➢ Knime
@@ -756,6 +756,8 @@ Il pourrait également être intéressant de tester les mêmes arbres avec un pl
 ### ❏ GESTION DE PROJET
 
 La gestion de ce projet fut déterminée début février selon le diagramme de GANTT suivant : 
+
+![img](rapport/gantt.png)
 
 L’appréhension du sujet et la prise en main des tables fut plus longue que prévue, les données fournies étant très nombreuses et le nombre d’individus très variés entre les tables, Hugo prit donc de l’avance sur la rédaction de l’introduction et du contexte. 
 
