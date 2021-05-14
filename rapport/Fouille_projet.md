@@ -178,6 +178,7 @@ Les tables contiennent certains attributs pertinents à notre analyse : Gene_ID 
 
 ### ❖ CONCEPTION
 
+#### ➢ Matrice individus-variables
 
 Notre matrice individus-variable a été construite à partir du logiciel R version 3.04. Le gestionnaire de bases de données utilisé est le serveur MariaDB version 10.5.9. L’utilisation du serveur depuis R à l’aide de la librairie RMySQL permet d’effectuer des liens entre ces tables grâce à des requêtes SQL, et ainsi tirer des données pertinentes pour la suite de l’analyse dans le but d’effectuer notre classification.
 
