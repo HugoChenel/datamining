@@ -1,17 +1,19 @@
 ```
 Identification et Classification de systèmes  ABC
-```
-
 
 Dans le cadre de l’UE “Fouille de données” par R. Barriot 
 
 CHENEL Hugo
-
 GHEZIEL Nadine 
+
+M1 “Biologie Informatique et Biologie des Systèmes”
+```
+
+
+
 
  
 
-M1 “Biologie Informatique et Biologie des Systèmes”
 
  	 	
 
