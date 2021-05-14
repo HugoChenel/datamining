@@ -5,13 +5,47 @@
 
 ![img](https://upload.wikimedia.org/wikipedia/fr/a/a4/Logo_UT3.jpg)
 
+```
+## CHENEL Hugo GHEZIEL Nadine 
 
-## CHENEL Hugo
-## GHEZIEL Nadine 
-
+```
  
 
 M1 “Biologie Informatique et Biologie des Systèmes”
+
+### ❖ INTRODUCTION
+
+```
+➢ Contexte
+➢ Objectifs du projet
+➢ Informations disponibles
+```
+### ❖ ANALYSE
+
+```
+➢ Données fournies
+➢ Tables
+■ Taxonomy, Strain and Chromosome
+■ Gene
+■ Conserved_Domain and Functional_Domain
+■ Orthology
+■ Protein and Assembly
+```
+### ❖ CONCEPTION
+
+```
+➢ Matrice individus-variables
+➢ Knime
+```
+### ❖ RÉALISATION, INTERPRÉTATION ET DISCUSSION
+
+### ❖ BILAN ET PERSPECTIVES
+
+```
+➢ Gestion du projet
+```
+
+### ❏ CONTEXTE
 
  	 	
 
