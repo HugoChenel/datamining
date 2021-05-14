@@ -6,7 +6,7 @@
 ![img](https://upload.wikimedia.org/wikipedia/fr/a/a4/Logo_UT3.jpg)
 
 
-**CHENEL Hugo **
+**CHENEL Hugo** -
 **GHEZIEL Nadine**
 
 
@@ -82,7 +82,7 @@ Par exemple :
 
 De plus, la structure peut être homodimérique (2 protéines codées par le même gène) ou hétérodimérique (2 protéines codées par 2 gènes différents). 	
 
-Ces systèmes étant très anciens, ils se sont fortement diversifiés au cours de l’évolution avec l’accumulation de mutations sur la séquence de leurs gènes. A la suite d’analyses de similarité de séquence**,** il a été possible de les classer en une vingtaine de sous-familles déterminées. Cette similarité de séquence indique que les molécules transportées sont similaires (cela n’est pas transposable à toutes les familles multigéniques). Une seule mutation peut suffire à modifier complètement la fonction.
+Ces systèmes étant très anciens, ils se sont fortement diversifiés au cours de l’évolution avec l’accumulation de mutations sur la séquence de leurs gènes. A la suite d’analyses de similarité de séquence, il a été possible de les classer en une vingtaine de sous-familles déterminées. Cette similarité de séquence indique que les molécules transportées sont similaires (cela n’est pas transposable à toutes les familles multigéniques). Une seule mutation peut suffire à modifier complètement la fonction.
 
 Les techniques de séquençage génomique ont progressé ces dernières années, permettant d’obtenir les séquences génomiques complètes de différents organismes. La génomique produit des volumes conséquents de données.                              
 
@@ -142,7 +142,7 @@ La classification est le type d’apprentissage retenu pour ce projet afin de cl
 
 
 
-*   **INFORMATIONS DISPONIBLES**
+### ❏ INFORMATIONS DISPONIBLES
 
 ABCdb est une banque de données publique dédiée aux transporteurs ABC. Elle a été encodée à partir de génomes procaryotes intégralement séquencés. On dispose donc de données sur les génomes expertisés permettant la classification automatique.
 
@@ -154,11 +154,14 @@ Deux informations sont pertinentes parmi celles à notre disposition :
 
 *   les domaines présents sur la séquence protéique correspondant au gène à partir de banques de données de domaines
 *   l’orthologie de type 1:1 entre les gènes des génomes expertisés sachant que l’on connaît leur architecture en domaine et leur sous-famille.
-*   **ANALYSE**
+
+
+### ❖ ANALYSE
+
+![img](https://lh3.googleusercontent.com/ZH4W9kpD9plihZe9fhVGjElyyYseuG4Z5FuwBHazW6Jl-rNm0iICcq21f3zg-c7WZF2ZOeop87nCmWtCgC7qPC8g94e5mITJ1QPwa0TjMezYr17zRh8tgAjAdZqBHG2WUnKSVPU9)
 
 Fig 3 : Schéma Base de données
-
-[http://silico.biotoul.fr/enseignement/m1/datamining/projet/sujet.html](http://silico.biotoul.fr/enseignement/m1/datamining/projet/sujet.html)
+http://silico.biotoul.fr/enseignement/m1/datamining/projet/sujet.html
 
 Dans un premier temps, il est important de choisir les tables jugées pertinentes à notre analyse. Selon une réflexion menée sur notre problématique, et sur les attributs contenus dans les tables proposées, nous avons portés nos choix sur les suivantes : 
 
@@ -173,8 +176,8 @@ Les tables contiennent certains attributs pertinents à notre analyse : Gene_ID 
 
 
 
-*   **CONCEPTION**
-*   **<span style="text-decoration:underline;">Matrice individus-variables</span>**
+### ❖ CONCEPTION
+
 
 Notre matrice individus-variable a été construite à partir du logiciel R version 3.04. Le gestionnaire de bases de données utilisé est le serveur MariaDB version 10.5.9. L’utilisation du serveur depuis R à l’aide de la librairie RMySQL permet d’effectuer des liens entre ces tables grâce à des requêtes SQL, et ainsi tirer des données pertinentes pour la suite de l’analyse dans le but d’effectuer notre classification.
 
