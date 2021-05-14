@@ -6,10 +6,10 @@
 ![img](https://upload.wikimedia.org/wikipedia/fr/a/a4/Logo_UT3.jpg)
 
 
-_CHENEL Hugo 
-GHEZIEL Nadine _
-****
- 
+_**CHENEL Hugo 
+GHEZIEL Nadine **_
+
+
 
 _M1 “Biologie Informatique et Biologie des Systèmes”_
 
@@ -89,15 +89,17 @@ L’annotation des génomes permet de trier et organiser ces données afin de le
 
 
 
-*   **OBJECTIFS 	 	**
+### ❏ OBJECTIFS 	 	**
 
 Le data mining, ou Knowledge Discovery in Databases (KDD), est un processus permettant l’extraction des connaissances intéressantes ou des motifs/patterns à partir d’une grande quantité de données. Composante essentielle des techniques d'analyse des grands jeux de données, cette technique permet l’exploration et l’analyse de données volumineuses, la transformation de ces données en information utile, et éventuellement la recherche de relation entre les données.
 
 En d’autres termes, le data mining consiste en la découverte de connaissances dans les bases de données.
 
+![img](https://touriaelouahabi.files.wordpress.com/2013/04/sans-titre.png)
+
 Fig. 2 : Processus d’extraction de connaissances à partir de bases de données
 
-[https://touriaelouahabi.wordpress.com/ecbd/concepts-et-principes-du-data-mining/](https://touriaelouahabi.wordpress.com/ecbd/concepts-et-principes-du-data-mining/)<span style="text-decoration:underline;"> </span>
+[https://touriaelouahabi.wordpress.com/ecbd/concepts-et-principes-du-data-mining/]
 
 Une succession d’étapes est impliquée dans le processus de découverte de connaissances:
 
