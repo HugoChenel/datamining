@@ -67,14 +67,10 @@ L’architecture des transporteurs est conservée au sein de la majorité de ces
 De plus, certains domaines peuvent être portés par un même gène ou des gènes différents, mais on peut également retrouver un seul gène pour plusieurs domaines.
 
 
-
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
 ![alt_text](https://lh5.googleusercontent.com/wORimms2Tz-wON5TPAOFTMHmIds8VBCT7yjWf4dQ-qSLbcpXf49ri3by8PThE1gUM-FsQQPR-BvzckmhEDVsx7v79K0w1vK-kaSrRw3C5jr1kFpIwghxV7_P_MfJgC9dNPVp28cy)
 
 
-**Fig.1 : **Architecture des transporteurs ABC [http://silico.biotoul.fr/enseignement/m1/datamining/projet/sujet.html](http://silico.biotoul.fr/enseignement/m1/datamining/projet/sujet.html)
+Fig.1 : Architecture des transporteurs ABC (http://silico.biotoul.fr/enseignement/m1/datamining/projet/sujet.html)
 
 Par exemple : 
 
