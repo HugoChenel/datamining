@@ -377,8 +377,8 @@ Le workflow se construit selon le modèle suivant pour les 2 types de classifica
 *   Le nœud _Decision Tree Learner_ ou _Naive Bayes Learner_ est configuré de telle sorte que la colonne de classification corresponde à _Family_Link_.
 
 
-#### Evaluation d’un classificateur : performances \
- \
+#### Evaluation d’un classificateur : performances
+
 Si une classe est peu présente dans le jeu de données initial, le partitionnement peut entraîner la création d’un jeu d’apprentissage et d’un jeu de test dont le nombre de classes sera différent. Pour y remédier, on utilisera des validations croisées.
 
 Ces validations croisées sont intégrées dans Knime (`"Cross Validation"`). La construction s'effectue de la manière suivante :
@@ -393,15 +393,11 @@ La validation croisée “Leave-one-out” (validation croisée avec k=s où k r
 
 
 
-*   **RÉSULTATS **
+### ❖ RÉSULTATS
 
 
 
-<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image3.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image3.png "image_tooltip")
-
+![img](https://lh6.googleusercontent.com/_dOCo4_ZNpIUZ-XuG4-rNJxBVXjCqVb_b2rnGF9LK0R2PuIU758P89fyESwpYihtE_oZj3n89lpXxHvstflHsW7ukEM_e20M7FmPjAwLq0fpUwIhFk6F7WEtvd8saSAeKvzXPRuy)
 
 Fig 4 : KNIME _workflow_ for Decision Tree model.
 
@@ -616,13 +612,6 @@ Les résultats obtenus pour l’arbre de décision sont représentés dans le ta
 
 
 
-<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image4.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image4.png "image_tooltip")
-
-
-Fig 5 : KNIME _workflow_ for **Naïve Bayes model**.
 
 Les résultats obtenus pour classification _naïve_ bayésienne sont représentés dans le tableau ci-dessous :
 
@@ -709,7 +698,7 @@ Les résultats obtenus pour classification _naïve_ bayésienne sont représent�
 
 
 
-*   **DISCUSSION**
+### ❖ DISCUSSION
 
 L’ensemble des résultats est satisfaisant. L’arbre de décision et le classificateur bayésien semblent être des types de classification pertinent pour notre jeu de données. En effet, hormis pour le linear sampling, le taux d’erreur de ces deux types de classification est inférieur à 2% peu importe les paramètres sélectionnés.
 
@@ -735,7 +724,7 @@ L’élagage (MDL) a pour but d’augmenter la précision pour éviter que l’a
 
 
 
-*   **BILAN ET PERSPECTIVES**
+### ❖ BILAN ET PERSPECTIVES
 
 La majorité du travail s’est concentrée sur la construction de la matrice individus-variables. Il a fallu préalablement sélectionner des attributs pertinents biologiquement afin de classer les gènes selon leur sous-type de protéine ABC. 
 
@@ -759,7 +748,7 @@ Il pourrait également être intéressant de tester les mêmes arbres avec un pl
 
 
 
-*   **GESTION DE PROJET**
+### ❏ GESTION DE PROJET
 
 La gestion de ce projet fut déterminée début février selon le diagramme de GANTT suivant : 
 
