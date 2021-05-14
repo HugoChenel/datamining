@@ -322,33 +322,26 @@ Les dernières étapes consistent en :
 *   la suppression de la colonne GENE_ID qui ne sera plus utile à l’analyse 
 *   l’écriture de la matrice dans un fichier de sortie 
 
-Nous obtenons alors la matrice suivante, composée de 4523 individus :
-
-
-
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image2.png "image_tooltip")
+Nous obtenons alors une matrice composée de 4523 individus.
 
 
 
 
-*   **<span style="text-decoration:underline;">Knime</span>**
+#### ➢ Knime
 
 Nous allons maintenant utiliser des méthodes d'apprentissage proposées par le logiciel KNIME, un logiciel open source permettant la construction de workflow précis. Le workflow sera constitué des différentes étapes nécessaires à sa réalisation depuis les lecture et paramétrage des données, à l’analyse et la visualisation des résultats 
 
 KNIME propose l’utilisation d’un nombre étendu de tests statistiques et algorithmes dédiés à la fouilles de données, nous en utiliserons plusieurs afin d’interpréter, mais également de comparer  les résultats obtenus avec plusieurs méthodes.
 
 
-#### **Construction du modèle**
+#### Construction du modèle
 
 
-#### Parmi** **les différents types de classificateurs, les tests ont été effectués sur l’arbre de décision (Decision Tree Learner) et le classificateur bayésien naïf (Naïve Bayes Classifier).
+Parmi les différents types de classificateurs, les tests ont été effectués sur l’arbre de décision (Decision Tree Learner) et le classificateur bayésien naïf (Naïve Bayes Classifier).
 
 
 
-1. <span style="text-decoration:underline;">Decision Tree Learner</span>
+##### 1. Decision Tree Learner
 
 La génération de l’arbre nécessaire à la classification se fait en deux étapes :
 
@@ -357,13 +350,13 @@ La génération de l’arbre nécessaire à la classification se fait en deux é
 *   Construction : initialement, les exemples du jeu d'apprentissage se situent à la racine, puis s’effectue une partition récursive des exemples en sélectionnant les attributs.
 *   Élagage permettant d’identifier supprimer des branches correspondant à des exceptions ou du bruit.
 
-Une mesure de qualité intéressante est le <span style="text-decoration:underline;">coefficient de Gini</span>. En effet, cette mesure statistique permet d’établir la répartition d'une variable au sein d'une population. Autrement dit, il mesure la dispersion d’une distribution dans la population.
+Une mesure de qualité intéressante est le coefficient de Gini. En effet, cette mesure statistique permet d’établir la répartition d'une variable au sein d'une population. Autrement dit, il mesure la dispersion d’une distribution dans la population.
 
-Un piège à éviter dans cette modélisation est l’overfitting ; une sur-modélisation du jeu d’apprentissage dont l’arbre généré risque de trop refléter le jeu d’apprentissage. Pour y remédier, une méthode permet d'évaluer les sous-arbres à élaguer (pruning) : le principe <span style="text-decoration:underline;">MDL</span> (minimum description length).
+Un piège à éviter dans cette modélisation est l’overfitting ; une sur-modélisation du jeu d’apprentissage dont l’arbre généré risque de trop refléter le jeu d’apprentissage. Pour y remédier, une méthode permet d'évaluer les sous-arbres à élaguer (pruning) : le principe MDL (minimum description length).
 
 
 
-2. <span style="text-decoration:underline;">Classificateur bayésien naïf </span>
+##### 2. Classificateur bayésien naïf
 
 Nous sommes dans le cas d’un apprentissage et d’une prédiction probabiliste. Le terme naïf signifie que les descripteurs sont conditionnellement indépendants.
 
@@ -384,7 +377,7 @@ Le workflow se construit selon le modèle suivant pour les 2 types de classifica
 *   Le nœud _Decision Tree Learner_ ou _Naive Bayes Learner_ est configuré de telle sorte que la colonne de classification corresponde à _Family_Link_.
 
 
-#### **Evaluation d’un classificateur : performances** \
+#### Evaluation d’un classificateur : performances \
  \
 Si une classe est peu présente dans le jeu de données initial, le partitionnement peut entraîner la création d’un jeu d’apprentissage et d’un jeu de test dont le nombre de classes sera différent. Pour y remédier, on utilisera des validations croisées.
 
