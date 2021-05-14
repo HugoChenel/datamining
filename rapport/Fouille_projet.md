@@ -1,14 +1,13 @@
+# Identification et Classification de systèmes  ABC
 
-#Identification et Classification de systèmes  ABC
-
-##Dans le cadre de l’UE “Fouille de données” par R. Barriot 
+## Dans le cadre de l’UE “Fouille de données” par R. Barriot 
 
 
 ![img](https://upload.wikimedia.org/wikipedia/fr/a/a4/Logo_UT3.jpg)
 
 
-##CHENEL Hugo
-##GHEZIEL Nadine 
+## CHENEL Hugo
+## GHEZIEL Nadine 
 
  
 
