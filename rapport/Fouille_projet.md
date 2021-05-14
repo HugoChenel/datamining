@@ -611,7 +611,10 @@ Les résultats obtenus pour l’arbre de décision sont représentés dans le ta
 
 
 
+Passons maintenant à une autre méthode de classification :
+
 ![img](rapport/image_NaiveBayes.png)
+
 Fig 5 : KNIME workflow for Naïve Bayes model.
 
 
