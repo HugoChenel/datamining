@@ -399,6 +399,8 @@ La validation croisée “Leave-one-out” (validation croisée avec k=s où k r
 
 ![img](https://lh6.googleusercontent.com/_dOCo4_ZNpIUZ-XuG4-rNJxBVXjCqVb_b2rnGF9LK0R2PuIU758P89fyESwpYihtE_oZj3n89lpXxHvstflHsW7ukEM_e20M7FmPjAwLq0fpUwIhFk6F7WEtvd8saSAeKvzXPRuy)
 
+![img](rapport/image_NaiveBayes.png)
+
 Fig 4 : KNIME _workflow_ for Decision Tree model.
 
 Les résultats obtenus pour l’arbre de décision sont représentés dans le tableau ci-dessous :
